@@ -5,7 +5,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.neighbors import KNeighborsRegressor
 
 # Download and prepare the data
-data_path = "../data/lifesat.csv"
+data_path = "../../data/lifesat.csv"
 lifesat = pd.read_csv(data_path)
 
 X = lifesat[["GDP per capita (USD)"]].values

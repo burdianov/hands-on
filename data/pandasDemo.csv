@@ -1,0 +1,12 @@
+ModuleID,Instructor,TA,Enrolment,Rating
+CS101,Aaron,Vera,38,9
+CS101,Beth,Carol,,9
+CS101,Calvin,Andy,28,7
+CS102,Dan,Zidane,39,6
+CS102,Aaron,Andy,32,
+CS102,Beth,Vera,,7
+CS103,Peter,Tim,40,8
+CS103,Eve,Faith,39,9
+CS103,Gail,Wesley,30,
+CS104,Aaron,Vera,30,8
+CS104,Dan,Tim,30,
