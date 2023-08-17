@@ -73,3 +73,6 @@ classData_columns_deleted = class_data.dropna(axis=1)
 
 myData2 = pd.DataFrame([[1, 2], [3, 4]], columns=["A", "B"])
 myArr = myData2.to_numpy()
+
+myData3 = pd.DataFrame({"A": [1, 4, 7, 10], "B": [1, 2, 3, 4], "C": [2, 12, 1, 5]})
+myData3.corr()
