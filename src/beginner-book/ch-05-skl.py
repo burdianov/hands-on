@@ -10,6 +10,7 @@ from sklearn.preprocessing import (
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
+from sklearn.metrics import accuracy_score, precision_score, recall_score
 
 X = pd.DataFrame({"A": [1, 2, 3, 2], "B": [11, 1, 8, 3]})
 scaler = StandardScaler()
@@ -77,3 +78,11 @@ ct2 = ColumnTransformer(
     remainder="passthrough",
 )
 print(ct2.fit_transform(data))
+
+true = ["Cat", "Cat", "Dog", "Dog", "Cat", "Dog"]
+pred = ["Cat", "Cat", "Cat", "Dog", "Cat", "Cat"]
+
+score = accuracy_score(true, pred)
+
+precision = precision_score(true, pred, pos_label="Dog")
+recall = recall_score(true, pred, pos_label="Dog")
