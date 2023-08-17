@@ -10,7 +10,14 @@ from sklearn.preprocessing import (
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
-from sklearn.metrics import accuracy_score, precision_score, recall_score
+from sklearn.metrics import (
+    accuracy_score,
+    precision_score,
+    recall_score,
+    r2_score,
+    mean_squared_error,
+)
+from sklearn.model_selection import train_test_split
 
 X = pd.DataFrame({"A": [1, 2, 3, 2], "B": [11, 1, 8, 3]})
 scaler = StandardScaler()
@@ -86,3 +93,14 @@ score = accuracy_score(true, pred)
 
 precision = precision_score(true, pred, pos_label="Dog")
 recall = recall_score(true, pred, pos_label="Dog")
+
+pred = [2.1, 1.4, 5.6, 7.9]
+true = [2.5, 1.6, 5.1, 6.8]
+
+RMSE = mean_squared_error(true, pred, squared=False)
+r2 = r2_score(true, pred)
+
+X = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+y = [23, 11, 31, 45, 12, 65, 43, 69, 13, 12]
+
+X_train, x_test, Y_train, y_test = train_test_split(X, y)
