@@ -5,6 +5,7 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.pipeline import Pipeline
 
 # lINEAR REGRESSION
 ## Step 1 - Load the data
@@ -127,3 +128,26 @@ RMSE = mean_squared_error(y_test, y_pred_test, squared=False)
 r2 = r2_score(y_test, y_pred_test)
 print(RMSE)
 print(r2)
+
+# PIPELINE
+
+## Create the pipeline
+pipeline = Pipeline(
+    [("poly", PolynomialFeatures(degree=2)), ("model", LinearRegression())]
+)
+
+## Train the model
+pipeline.fit(X_train.values, y_train.values)
+
+## Make predictions
+print(pipeline.predict([[250]]))
+
+## Evaluate the model on the train set
+y_pred = pipeline.predict(X_train.values)
+print(mean_squared_error(y_train, y_pred, squared=False))
+print(r2_score(y_train, y_pred))
+
+## Evaluate model on the test set
+y_pred_test = pipeline.predict(X_test.values)
+print(mean_squared_error(y_test, y_pred_test, squared=False))
+print(r2_score(y_test, y_pred_test))
