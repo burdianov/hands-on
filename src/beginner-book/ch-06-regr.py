@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.pipeline import Pipeline
 
@@ -151,3 +151,14 @@ print(r2_score(y_train, y_pred))
 y_pred_test = pipeline.predict(X_test.values)
 print(mean_squared_error(y_test, y_pred_test, squared=False))
 print(r2_score(y_test, y_pred_test))
+
+# CROSS-VALIDATION
+scores = cross_val_score(
+    pipeline, X_train, y_train, cv=3, scoring="neg_root_mean_squared_error"
+)
+neg_rmse = scores.mean()
+-neg_rmse
+
+scores = cross_val_score(pipeline, X_train, y_train, cv=3, scoring="r2")
+r2 = scores.mean()
+r2
